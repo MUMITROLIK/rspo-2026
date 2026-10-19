@@ -1,0 +1,29 @@
+{
+  "mashyna": {
+    "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+    "logical_cores": 12,
+    "python": "3.12.10",
+    "os": "Windows-11-10.0.26200-SP0"
+  },
+  "zadacha": {
+    "W": 1200,
+    "H": 800,
+    "max_iter": 300
+  },
+  "obchyslennya_prohony_s": [
+    9.365106899989769,
+    9.656670900003519,
+    9.554965899966192
+  ],
+  "obchyslennya_min_s": 9.365106899989769,
+  "rozkid_vidsotkiv": 3.113301354991138,
+  "poslidovna_prohony_s": [
+    0.06718359998194501,
+    0.06778959999792278,
+    0.0711814999813214
+  ],
+  "poslidovna_min_s": 0.06718359998194501,
+  "poslidovna_chastka_vidsotkiv": 0.7122723794623002,
+  "etalon_sha256": "d62b69bb0d7dc53cb3a7b99c781c24f40806b7d8d6985959c4fd210589b0e852",
+  "kolis": "2026-10-19 13:34:40"
+}

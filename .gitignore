@@ -11,3 +11,4 @@ venv/
 .idea/
 .DS_Store
 !prognoz_amdahl.png
+!1-poslidovno/mandelbrot.png

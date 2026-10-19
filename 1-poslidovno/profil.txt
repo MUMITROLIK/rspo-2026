@@ -1,0 +1,15 @@
+Профіль послідовної версії (cProfile, один прогін, сортування за tottime)
+Машина: {'processor': 'AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD', 'logical_cores': 12, 'python': '3.12.10', 'os': 'Windows-11-10.0.26200-SP0'}
+Задача: 1200x800, max_iter=300
+
+         960802 function calls in 10.765 seconds
+
+   Ordered by: internal time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+      800   10.628    0.013   10.763    0.013 C:\Users\X Q\Downloads\rspo-2026\1-poslidovno\mandelbrot.py:32(ryadok)
+   960000    0.135    0.000    0.135    0.000 {method 'append' of 'list' objects}
+        1    0.002    0.002   10.765   10.765 C:\Users\X Q\Downloads\rspo-2026\1-poslidovno\poslidovno.py:19(poslidovno)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+
