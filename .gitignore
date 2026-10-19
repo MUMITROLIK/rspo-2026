@@ -10,3 +10,4 @@ venv/
 .vscode/
 .idea/
 .DS_Store
+!prognoz_amdahl.png
