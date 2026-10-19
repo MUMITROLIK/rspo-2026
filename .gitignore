@@ -12,3 +12,4 @@ venv/
 .DS_Store
 !prognoz_amdahl.png
 !1-poslidovno/mandelbrot.png
+!5-gpu/mandelbrot_gpu_kartynka.png
