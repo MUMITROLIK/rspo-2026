@@ -1,0 +1,52 @@
+{
+  "mashyna": {
+    "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+    "logical_cores": 12,
+    "python": "3.12.10",
+    "os": "Windows-11-10.0.26200-SP0",
+    "numba": "0.61.2",
+    "numpy": "1.26.4",
+    "numba_potokiv": 12
+  },
+  "baza_tyzhden2_s": 9.365106899989769,
+  "prohoniv": 5,
+  "poslidovno_ce_zapusk": {
+    "prohony": [
+      8.491813300002832,
+      8.59470809996128,
+      8.570279399980791
+    ],
+    "min": 8.491813300002832
+  },
+  "njit": {
+    "pershyi_vyklyk_s": 0.9102899999707006,
+    "prohony": [
+      0.16899269999703392,
+      0.16884440003195778,
+      0.16989309998461977,
+      0.16911550000077114,
+      0.16965689999051392
+    ],
+    "min": 0.16884440003195778,
+    "pryskorennya_do_poslid_zapusku": 50.29372190250643,
+    "pryskorennya_do_bazy": 55.46590173092624,
+    "rozbizhnykh_tochok": 0,
+    "kompilyatsiya_otsinka_s": 0.7414455999387428
+  },
+  "prange": {
+    "pershyi_vyklyk_s": 6.073527100030333,
+    "prohony": [
+      0.03952950000530109,
+      0.04031140002189204,
+      0.04118269996251911,
+      0.04104310000548139,
+      0.040649999980814755
+    ],
+    "min": 0.03952950000530109,
+    "pryskorennya_do_poslid_zapusku": 214.82217834437674,
+    "pryskorennya_do_bazy": 236.91437783766213,
+    "rozbizhnykh_tochok": 0,
+    "kompilyatsiya_otsinka_s": 6.033997600025032
+  },
+  "prange_nad_njit": 4.2713517754921
+}

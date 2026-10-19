@@ -1,0 +1,46 @@
+{
+  "mashyna": {
+    "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+    "logical_cores": 12,
+    "python": "3.12.10",
+    "os": "Windows-11-10.0.26200-SP0",
+    "numpy": "1.26.4"
+  },
+  "baza_tyzhden2_s": 9.365106899989769,
+  "prohoniv": 5,
+  "poslidovno_ce_zapusk": {
+    "prohony": [
+      8.68243549996987,
+      8.652779900003225,
+      8.728138600010425
+    ],
+    "min": 8.652779900003225
+  },
+  "rozbizhnykh_endpoint_false": 67718,
+  "numpy_naivna": {
+    "prohony": [
+      6.302433100005146,
+      6.215267700026743,
+      6.185492699965835,
+      6.2615782000357285,
+      6.2170200000400655
+    ],
+    "min": 6.185492699965835,
+    "pryskorennya_do_poslid_zapusku": 1.398882889321172,
+    "pryskorennya_do_bazy": 1.5140438044719537,
+    "rozbizhnykh_tochok": 0
+  },
+  "numpy_maska": {
+    "prohony": [
+      1.986651699990034,
+      1.9664476999896578,
+      2.06676159997005,
+      1.953611099976115,
+      1.9760286000091583
+    ],
+    "min": 1.953611099976115,
+    "pryskorennya_do_poslid_zapusku": 4.4291209750543565,
+    "pryskorennya_do_bazy": 4.793741651091288,
+    "rozbizhnykh_tochok": 0
+  }
+}
