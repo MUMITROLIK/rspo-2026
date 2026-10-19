@@ -23,7 +23,8 @@ sys.path.insert(0, str(PAPKA.parent / "1-poslidovno"))
 import mandelbrot as m
 from mandelbrot import H, ryadok, zamir
 
-PROHONIV = 3
+PROHONIV = 5            # прогонів на конфігурацію: 3 було замало (розкид до 2×), див. vysnovky.md
+PAUZA_S = 8             # пауза між конфігураціями: дати процесору охолонути
 CHUNKSIZE = 8
 LOGICHNI = os.cpu_count()
 # 1, 2, 4, 8, max - вимога практичної; 3, 6, 10 додано для ⭐3 (де ефективність падає нижче 80 %);
@@ -46,6 +47,10 @@ def porozhniy_pul(n):
         list(ex.map(abs, range(n)))      # кожен процес мусить реально стартувати
 
 
+def pauza():
+    time.sleep(PAUZA_S)
+
+
 def main():
     mashyna = m.mashyna()
     print("Машина:", mashyna, flush=True)
@@ -56,6 +61,7 @@ def main():
     t_baza = baza["obchyslennya_min_s"]
     print(f"База з тижня 2: {t_baza:.3f} с", flush=True)
     res = {"mashyna": mashyna, "baza_tyzhden2_s": t_baza, "chunksize": CHUNKSIZE,
+           "prohoniv": PROHONIV, "pauza_s": PAUZA_S,
            "fizychni_yadra": 6, "logichni_yadra": LOGICHNI}
 
     # ---- контроль: послідовна версія в цьому запуску ----
@@ -68,6 +74,7 @@ def main():
     # ---- основна таблиця ----
     res["protsesy"] = {}
     for n in KILKIST_PROTSESIV:
+        pauza()
         t, chasy, r = zamir(protsesamy, n, prohoniv=PROHONIV)
         assert r == base, "результат розійшовся з послідовним"
         m.perevirka(r)
@@ -79,6 +86,7 @@ def main():
     # ---- вартість порожнього пулу ----
     res["porozhniy_pul"] = {}
     for n in (1, 2, 6, LOGICHNI):
+        pauza()
         t, chasy, _ = zamir(porozhniy_pul, n, prohoniv=PROHONIV)
         res["porozhniy_pul"][n] = {"prohony": chasy, "min": t}
         print("порожній пул,", n, "процесів:", [round(c, 3) for c in chasy], "мінімум", round(t, 3), "с", flush=True)
@@ -86,6 +94,7 @@ def main():
     # ---- ⭐1: chunksize на LOGICHNI процесах ----
     res["chunksize"] = {}
     for cs in (1, 8, 50, 200):
+        pauza()
         t, chasy, r = zamir(protsesamy, LOGICHNI, cs, prohoniv=PROHONIV)
         assert r == base, "результат розійшовся з послідовним"
         res["chunksize"][cs] = {"prohony": chasy, "min": t, "pryskorennya": t_baza / t,
@@ -96,6 +105,7 @@ def main():
     # ---- ⭐2: процесів більше, ніж ядер ----
     res["bilshe_nizh_yader"] = {}
     for n in (2 * LOGICHNI,):
+        pauza()
         t, chasy, r = zamir(protsesamy, n, prohoniv=PROHONIV)
         assert r == base, "результат розійшовся з послідовним"
         s = t_baza / t

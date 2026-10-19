@@ -16,9 +16,12 @@ res = json.loads((PAPKA / "protsesy_rezultaty.json").read_text(encoding="utf-8")
 pr = res["protsesy"]
 fiz, log = res["fizychni_yadra"], res["logichni_yadra"]
 
+# прискорення відносно послідовної версії ТОГО Ж запуску (так само, як у шаблоні практичної);
+# база тижня 2 (9,365 с) на ~10 % повільніша за цю послідовну, тому до неї ділити не можна
+t_seq = res["poslidovno_ce_zapusk"]["min"]
 n = [int(k) for k in pr]
-s = [pr[k]["pryskorennya"] for k in pr]
-e = [pr[k]["efektyvnist"] * 100 for k in pr]
+s = [t_seq / pr[k]["min"] for k in pr]
+e = [si / ni * 100 for si, ni in zip(s, n)]
 mash = res["mashyna"]
 
 fig, (a1, a2) = plt.subplots(1, 2, figsize=(11, 4.4))
@@ -43,8 +46,10 @@ a2.set_ylim(0, 110)
 a2.set_xticks(n)
 a2.grid(True, alpha=0.3)
 
+# у protsesy_rezultaty.json ключ "chunksize" перезаписано словником ⭐1, тому 8 тут константа з protsesy.py
+CHUNKSIZE = 8
 fig.suptitle(f"Процеси, Python {mash['python']}, {fiz} фізичних / {log} логічних ядер, "
-             f"Мандельброт 1200×800, chunksize={res['chunksize']}")
+             f"Мандельброт 1200×800, chunksize={CHUNKSIZE}")
 fig.tight_layout()
 fig.savefig(PAPKA / "grafik.png", dpi=110)
 print("збережено grafik.png")
